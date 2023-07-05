@@ -7,9 +7,10 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const Project = require('./models/Project');
 const mongoose = require('mongoose');
-const AUTH_TOKEN = "9a085aef-fb20-44e4-81fa-64a4b1ba910a"
 const cors = require('cors');
 const config = require('./config/config');
+const dotenv = require('dotenv');
+const AUTH_TOKEN = process.env.AUTH_TOKEN || config.AUTH_TOKEN;
 
 app.use(cors());
 // connect to mongodb
