@@ -191,7 +191,8 @@ app.post('/api/cv', auth, (req, res) => {
             // pass error to error handling middleware
             next(err);
         } else {
-            res.status(200).send("localhost:3008/public/uploads/pdf/Mazin-Islam-CV.pdf")
+            // send current url ending with Mazin-Islam-CV.pdf
+            res.status(201).json({ url: req.protocol + '://' + req.get('host') + req.originalUrl });
         }
     });
 });
